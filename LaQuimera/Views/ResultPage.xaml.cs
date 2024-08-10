@@ -66,21 +66,24 @@ namespace LaQuimera.Views
                         {
                             Text = $"Producto: {product.Product ?? "N/A"}",
                             FontSize = 20,
-                            FontAttributes = FontAttributes.Bold
+                            TextColor = Colors.Gray
                         },
                         new Label
                         {
                             Text = $"Tipo: {product.TipoProduct ?? "N/A"}",
+                            TextColor = Colors.Gray,
                             FontSize = 18
                         },
                         new Label
                         {
                             Text = $"Deposito: {product.Deposito ?? "N/A"}",
+                            TextColor = Colors.Gray,
                             FontSize = 18
                         },
                         new Label
                         {
                             Text = $"Cantidad: {product.Cantidad}",
+                            TextColor = Colors.Gray,
                             FontSize = 18
                         },
                         // Si tienes una imagen QR, configúralo aquí

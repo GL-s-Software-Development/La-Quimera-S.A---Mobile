@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace LaQuimera.Services
 {
-    public class ProductService
+    public class ProductService : IProductService
     {
         private string connectionString = "Server=192.168.0.250; Port=3306; Database=laquimera; User=lquser; Pwd=Arcadia1@;";
 
