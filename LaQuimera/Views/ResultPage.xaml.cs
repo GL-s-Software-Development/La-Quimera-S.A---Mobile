@@ -48,7 +48,7 @@ namespace LaQuimera.Views
         private Frame CreateProductCard(ProductModel product)
         {
             // Debug: Verifica los valores del producto
-            System.Diagnostics.Debug.WriteLine($"Product: {product.Product}, Tipo: {product.TipoProduct}, Deposito: {product.Deposito}, Cantidad: {product.Cantidad}");
+            //System.Diagnostics.Debug.WriteLine($"Product: {product.Product}, Tipo: {product.TipoProduct}, Deposito: {product.Deposito}, Cantidad: {product.Cantidad}");
 
             var productCard = new Frame
             {
@@ -86,12 +86,12 @@ namespace LaQuimera.Views
                             TextColor = Colors.Gray,
                             FontSize = 18
                         },
-                        // Si tienes una imagen QR, configúralo aquí
+                        // Configurar imagen QR
                         product.QrCodeImage != null
                             ? new Image
                             {
                                 Source = ImageSource.FromStream(() => new MemoryStream(product.QrCodeImage)),
-                                HeightRequest = 100,  // Ajusta el tamaño de la imagen si es necesario
+                                HeightRequest = 100,  // Ajustar el tamaño de la imagen si es necesario
                                 WidthRequest = 100
                             }
                             : new Label { Text = "QR Code not available" }
