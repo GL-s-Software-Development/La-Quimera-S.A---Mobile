@@ -13,6 +13,7 @@ namespace LaQuimera.Models
         public string TipoProduct { get; set; }
         public string Deposito { get; set; }
         public int Cantidad { get; set; }
+        public string Medida { get; set; }
         public byte[] QrCodeImage { get; set; }
     }
 }

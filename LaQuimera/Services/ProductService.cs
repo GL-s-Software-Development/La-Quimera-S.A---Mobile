@@ -11,7 +11,7 @@ namespace LaQuimera.Services
 {
     public class ProductService : IProductService
     {
-        private string connectionString = "Server=192.168.0.250; Port=3306; Database=laquimera; User=lquser; Pwd=Arcadia1@;";
+        private string connectionString = "Server=database-laquimera.c7s8wk0uaxov.us-east-2.rds.amazonaws.com; Port=3306; Database=laquimera; User=lqadmin; Pwd=Laquimera91;";
 
         public async Task<List<ProductModel>> GetByProductAsync(string searchProduct)
         {
@@ -38,6 +38,7 @@ namespace LaQuimera.Services
                                 TipoProduct = reader["TIPO_PRODUC"].ToString(),
                                 Deposito = reader["DEPOSITO"].ToString(),
                                 Cantidad = Convert.ToInt32(reader["CANTIDAD"]),
+                                Medida = reader["UN_MEDIDA"].ToString(),
                                 QrCodeImage = reader["CODIGO_QR"] != DBNull.Value ? (byte[])reader["CODIGO_QR"] : null
                                 // ... Otros campos
                             };

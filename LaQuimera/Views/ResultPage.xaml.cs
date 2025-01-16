@@ -47,9 +47,6 @@ namespace LaQuimera.Views
 
         private Frame CreateProductCard(ProductModel product)
         {
-            // Debug: Verifica los valores del producto
-            //System.Diagnostics.Debug.WriteLine($"Product: {product.Product}, Tipo: {product.TipoProduct}, Deposito: {product.Deposito}, Cantidad: {product.Cantidad}");
-
             var productCard = new Frame
             {
                 BorderColor = Colors.Gray,
@@ -61,41 +58,65 @@ namespace LaQuimera.Views
                 Content = new StackLayout
                 {
                     Children =
+            {
+                new Label
+                {
+                    FormattedText = new FormattedString
                     {
-                        new Label
+                        Spans =
                         {
-                            Text = $"Producto: {product.Product ?? "N/A"}",
-                            FontSize = 20,
-                            TextColor = Colors.Gray
-                        },
-                        new Label
+                            new Span { Text = "Producto: ", FontAttributes = FontAttributes.Bold, TextColor = Colors.Gray },
+                            new Span { Text = product.Product ?? "N/A", FontAttributes = FontAttributes.None, TextColor = Colors.Black }
+                        }
+                    },
+                    FontSize = 20
+                },
+                new Label
+                {
+                    FormattedText = new FormattedString
+                    {
+                        Spans =
                         {
-                            Text = $"Tipo: {product.TipoProduct ?? "N/A"}",
-                            TextColor = Colors.Gray,
-                            FontSize = 18
-                        },
-                        new Label
+                            new Span { Text = "Tipo: ", FontAttributes = FontAttributes.Bold, TextColor = Colors.Gray },
+                            new Span { Text = product.TipoProduct ?? "N/A", FontAttributes = FontAttributes.None, TextColor = Colors.Black }
+                        }
+                    },
+                    FontSize = 18
+                },
+                new Label
+                {
+                    FormattedText = new FormattedString
+                    {
+                        Spans =
                         {
-                            Text = $"Deposito: {product.Deposito ?? "N/A"}",
-                            TextColor = Colors.Gray,
-                            FontSize = 18
-                        },
-                        new Label
+                            new Span { Text = "Deposito: ", FontAttributes = FontAttributes.Bold, TextColor = Colors.Gray },
+                            new Span { Text = product.Deposito ?? "N/A", FontAttributes = FontAttributes.None, TextColor = Colors.Black }
+                        }
+                    },
+                    FontSize = 18
+                },
+                new Label
+                {
+                    FormattedText = new FormattedString
+                    {
+                        Spans =
                         {
-                            Text = $"Cantidad: {product.Cantidad}",
-                            TextColor = Colors.Gray,
-                            FontSize = 18
-                        },
-                        // Configurar imagen QR
-                        product.QrCodeImage != null
-                            ? new Image
-                            {
-                                Source = ImageSource.FromStream(() => new MemoryStream(product.QrCodeImage)),
-                                HeightRequest = 100,  // Ajustar el tamaño de la imagen si es necesario
-                                WidthRequest = 100
-                            }
-                            : new Label { Text = "QR Code not available" }
+                            new Span { Text = "Cantidad: ", FontAttributes = FontAttributes.Bold, TextColor = Colors.Gray },
+                            new Span { Text= $"{product.Cantidad} ", FontAttributes = FontAttributes.None, TextColor = Colors.Black},
+                            new Span { Text = $"{product.Medida}", FontAttributes = FontAttributes.Bold, TextColor = Colors.Black }
+                        }
+                    },
+                    FontSize = 18
+                },
+                product.QrCodeImage != null
+                    ? new Image
+                    {
+                        Source = ImageSource.FromStream(() => new MemoryStream(product.QrCodeImage)),
+                        HeightRequest = 100,  // Ajustar el tamaño de la imagen si es necesario
+                        WidthRequest = 100
                     }
+                    : new Label { Text = "QR Code not available", TextColor = Colors.Gray, FontSize = 18 }
+            }
                 }
             };
 
